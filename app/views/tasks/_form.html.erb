@@ -26,6 +26,11 @@
     <%= form.number_field :priority %>
   </div>
 
+  <div class="field">
+    <%= form.label :files %>
+    <%= form.file_field :files, multiple: true %>
+  </div>
+
     <%= form.hidden_field :project_id %>
 
   <div class="actions">
