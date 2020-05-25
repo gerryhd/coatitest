@@ -60,3 +60,5 @@ gem "omniauth-twitter", "~> 1.4"
 gem "dotenv", "~> 2.7", :group => :development
 
 gem "omniauth", "~> 1.9"
+
+gem "tinymce-rails", "~> 5.3"

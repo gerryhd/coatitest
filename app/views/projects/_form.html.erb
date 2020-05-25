@@ -18,7 +18,8 @@
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class: "tinymce", rows: 40, cols: 80 %>
+    <%= tinymce %>
   </div>
 
   <div class="actions">
