@@ -13,6 +13,28 @@
 <p>
   <strong>Tasks incomplete:</strong>
   <%= @project.incomplete_tasks.count %>
+    <% @project.incomplete_tasks.order('priority DESC').group_by(&:priority).each do |key, priority_group| %>
+    <h3>Priority level <%= key %></h3>
+    <ul>
+      <% priority_group.each do |task| %>
+        <li>
+          <strong><%= task.name %></strong>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</p>
+
+<p>
+  <strong>Tasks completed</strong>
+  <ul>
+  <% @project.tasks.finished.each do |task| %>
+    <li>
+      <h3><%= task.name %></h3>
+      <span><%= task.finished_at.strftime("finished on %e %A, %Y at %H:%M") %></span>
+    </li>
+  <% end %>
+  </ul>
 </p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
