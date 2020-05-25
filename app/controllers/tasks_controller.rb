@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :mark_completion]
 
   # GET /tasks
   # GET /tasks.json
@@ -63,16 +63,21 @@ class TasksController < ApplicationController
 
   def mark_completion
     @task.complete!
+    redirect_to task_path(@task)
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
-      @task = Task.find(params[:id])
+      @task = Task.find(id_in_params)
     end
 
     # Only allow a list of trusted parameters through.
     def task_params
       params.require(:task).permit(:name, :description, :priority, :project_id)
+    end
+    
+    def id_in_params
+      params[:id] || params[:task_id]
     end
 end

@@ -16,10 +16,19 @@
 </p>
 
 <p>
+  <strong>Status:</strong>
+  <% if @task.completed? %>
+    Finished
+  <% else %>
+    Incomplete
+  <% end %>
+</p>
+
+<p>
   <strong>Project:</strong>
   <%= @task.project_id %>
 </p>
 
-<%= link_to 'Complete Task', complete_task_path(@task) %> |
+<%= link_to 'Complete Task', task_complete_path(@task) %> |
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>
