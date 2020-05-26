@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :projects do
       member do
         get "add-task", to: "tasks#new"
+        get "send-project-summary", to: "projects#show", as: "send_summary"
         post "add-task", to: "tasks#create", as: "add_task_to"
       end
     end

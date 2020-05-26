@@ -10,12 +10,15 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    if params[:email]
+      ProjectSummaryMailer.with(project: @project, email: params[:email]).send_project_summary.deliver_later
+    end
     respond_to do |format|
       format.html
       format.pdf do
         render pdf: "summary",
-        template: "projects/pdf_show.html.erb",
-        layout: 'application.html'
+          template: "projects/pdf_show.html.erb",
+          layout: 'pdf.html'
       end
     end
   end
@@ -70,13 +73,13 @@ class ProjectsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_project
-      @project = Project.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_project
+    @project = Project.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def project_params
-      params.require(:project).permit(:title, :description)
-    end
+  # Only allow a list of trusted parameters through.
+  def project_params
+    params.require(:project).permit(:title, :description)
+  end
 end

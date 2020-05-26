@@ -37,6 +37,14 @@
   </ul>
 </p>
 
+<%= form_with method: :get, url: send_summary_project_path(@project) do |form| %>
+  <div class="field">
+    <%= form.label "Send PDF to:" %>
+    <%= form.text_field :email %>
+    <%= form.submit :send %>
+  </div>
+<% end %>
+
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Download PDF', project_path(@project, format: :pdf) %> |
 <%= link_to 'Add Task', add_task_to_project_path(@project) %> |
