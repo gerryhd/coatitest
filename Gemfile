@@ -62,3 +62,7 @@ gem "dotenv", "~> 2.7", :group => :development
 gem "omniauth", "~> 1.9"
 
 gem "tinymce-rails", "~> 5.3"
+
+gem "wicked_pdf", "~> 2.0"
+
+gem "wkhtmltopdf-binary", "~> 0.12.5"

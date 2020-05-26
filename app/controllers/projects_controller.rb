@@ -10,6 +10,14 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "summary",
+        template: "projects/pdf_show.html.erb",
+        layout: 'application.html'
+      end
+    end
   end
 
   # GET /projects/new
