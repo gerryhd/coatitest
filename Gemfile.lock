@@ -114,7 +114,7 @@ GEM
     multi_json (1.14.1)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
-    nio4r (2.5.2)
+    nio4r (2.5.8)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     oauth (0.5.4)
@@ -140,7 +140,7 @@ GEM
       rack
     orm_adapter (0.5.0)
     public_suffix (4.0.5)
-    puma (4.3.5)
+    puma (4.3.12)
       nio4r (~> 2.0)
     rack (2.2.2)
     rack-proxy (0.6.5)
@@ -257,7 +257,7 @@ DEPENDENCIES
   omniauth (~> 1.9)
   omniauth-facebook (~> 6.0)
   omniauth-twitter (~> 1.4)
-  puma (~> 4.1)
+  puma (~> 4.3)
   rails (~> 6.0.2, >= 6.0.2.2)
   sass-rails (>= 6)
   selenium-webdriver
